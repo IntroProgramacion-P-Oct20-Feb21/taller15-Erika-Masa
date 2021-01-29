@@ -19,8 +19,7 @@ public class LecturaArchivo {
    
     // lee registro del archivo
     public static double leerRegistros() {
-        
-        double suma = 0;
+      double suma = 0;
         double sueldo;
         
         // 1. Se abre el archivo
@@ -34,7 +33,8 @@ public class LecturaArchivo {
                 ArrayList<String> linea_partes = new ArrayList<>(lista);
                 
                 // agregar código aquí
-                
+                sueldo = Double.parseDouble(linea_partes.get(2));
+                suma = suma + sueldo;
             } // fin de while
             entrada.close();
         } // fin de try
@@ -47,5 +47,31 @@ public class LecturaArchivo {
     } // fin del m�todo leerRegistros
     // cierra el archivo y termina la aplicaci�n
 
-    
+   public static double leerRegistros2(){
+        double suma = 0;
+        double sueldo;
+        
+        
+        try 
+        {
+            Scanner entrada = new Scanner(new File("data/datos3.csv"));
+
+            while (entrada.hasNext()) {
+                String linea = entrada.nextLine();
+                List<String> lista = Arrays.asList(linea.split("\\|"));
+                ArrayList<String> linea_partes = new ArrayList<>(lista);
+                
+                sueldo = Double.parseDouble(linea_partes.get(2));
+                suma = suma + sueldo;
+                
+            } 
+            entrada.close();
+        } // fin de try
+        catch (Exception e) {
+            System.err.printf("Error, revise: %s\n", e);
+            System.exit(1); 
+        } // fin de catch
+        return suma;
+        
+   }  
 } 

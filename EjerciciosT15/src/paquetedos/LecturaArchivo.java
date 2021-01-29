@@ -45,6 +45,9 @@ public class LecturaArchivo {
                 // para transformar un valor de tipo String a Entero
                 numeroEstablecimientosEntero = Integer.parseInt(numeroEstablecimientos);
                 // agregar código aquí
+                // System.out.printf("%d\n", numeroEstablecimientosEntero);
+                suma = suma + numeroEstablecimientosEntero  ;
+
                 
                 
             } // fin de while

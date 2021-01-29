@@ -19,7 +19,7 @@ public class LecturaArchivo {
    
     // lee registro del archivo
     public static void leerRegistros() {
-
+        char inicial;
         String cadenaFinal = "";
         String nombreCanton;
         String numeroEstablecimientos;
@@ -36,12 +36,15 @@ public class LecturaArchivo {
                 // recuerde en el ArrayList existe elementos de tipo 
                 // String
                 nombreCanton = linea_partes.get(0);
-                numeroEstablecimientos = linea_partes.get(1); 
+                 numeroEstablecimientos = linea_partes.get(1);
                 numeroEstablecimientosEntero = Integer.parseInt(numeroEstablecimientos);
-                
+
                 // agregar código aquí
-                
-                
+                char letra = nombreCanton.charAt(0);
+                if (letra == 'A' || letra == 'E' || letra == 'I' || letra == 'O'
+                        || letra == 'U') {
+                    System.out.printf("%s\n", nombreCanton);
+                }
             } // fin de while
             entrada.close();
         } // fin de try
